@@ -1,0 +1,13 @@
+.popup__input_job{
+    width: 358px;
+    height: 27px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+}
+.popup__input:focus{
+    outline: none;
+}
