@@ -1,0 +1,17 @@
+.profile__editBtn{
+    background-color: black;
+    border: 1px;
+    border-color: white;
+    border-style: solid;
+    width: 24px;
+    height: 24px;
+    margin: 31px 0 0 19px;
+}
+
+@media screen and  (max-width:968px){
+    .profile__editBtn{
+        margin-top: 22px;
+        margin-bottom: 14px;
+        margin-left: 0;
+    }
+  }
