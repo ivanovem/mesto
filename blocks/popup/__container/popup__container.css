@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: center;
     margin: auto;
-    position: relative;
+    position: absolute;
     width: 430px;
     height: 330px;
     text-align: center;
