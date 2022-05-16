@@ -2,25 +2,25 @@ const editPopup = document.querySelector(".profile__editBtn");
 const closePopup = document.querySelector(".popup__close");
 const popup = document.querySelector(".popup");
 const submitPopup=document.querySelector(".popup__submit");
-const page = document.querySelector(".page");
+let inputJob=document.querySelector(".popup__input-job");
+let inputName=document.querySelector(".popup__input-name");
+let profileJob=document.querySelector(".profile__job");
+let profileName=document.querySelector(".profile__name");
 
-function togglePopup(){
-    popup.classList.toggle("popup_active");
+function open_Popup(){
+    popup.classList.add("popup_opened");
+    inputJob.value=profileJob.textContent;
+    inputName.value=profileName.textContent;    
+    
 };
 
-function readData(){
-    togglePopup();
-    page.style.overflow ='hidden';
-    let tempJob=profileJob.textContent;
-    let tempName=profileName.textContent;
-    inputJob.value=tempJob;
-    inputName.value=tempName;
-}
+function close_Popup(){
+    popup.classList.remove("popup_opened");
+};
 
+editPopup.addEventListener("click", open_Popup);
 
-editPopup.addEventListener("click", readData);
-
-closePopup.addEventListener("click", togglePopup);
+closePopup.addEventListener("click", close_Popup);
 
 
 function formSubmitHandler (evt) {
@@ -31,13 +31,12 @@ function formSubmitHandler (evt) {
     // Получите значение полей jobInput и nameInput из свойства value
 
     // Выберите элементы, куда должны быть вставлены значения полей
-    let jobInput=inputJob.value;
-    let nameInput=inputName.value;
+
     // Вставьте новые значения с помощью textContent
 
-    profileJob.textContent=jobInput;
-    profileName.textContent=nameInput;
-    togglePopup();
+    profileJob.textContent=inputJob.value;
+    profileName.textContent=inputName.value;
+    close_Popup();
 }
 
 submitPopup.addEventListener("click", formSubmitHandler);
