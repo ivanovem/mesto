@@ -1,5 +1,5 @@
 const editPopup = document.querySelector(".profile__editBtn");
-const closePopup = document.querySelector(".popup__close");
+const popupClose = document.querySelector(".popup__close");
 const popup = document.querySelector(".popup");
 const submitPopup=document.querySelector(".popup__submit");
 let inputJob=document.querySelector(".popup__input-job");
@@ -7,21 +7,19 @@ let inputName=document.querySelector(".popup__input-name");
 let profileJob=document.querySelector(".profile__job");
 let profileName=document.querySelector(".profile__name");
 
-function open_Popup(){
-    popup.classList.add("popup_opened");
-    if (popup.classList.contains('popup_opened')===true){ 
-        inputJob.value=profileJob.textContent; 
-        inputName.value=profileName.textContent;  
-    };  
+function openPopup(){
+    popup.classList.add("popup_opened");  
+    inputJob.value=profileJob.textContent;
+    inputName.value=profileName.textContent;  
 };
 
-function close_Popup(){
+function closePopup(){
     popup.classList.remove("popup_opened");
 };
 
-editPopup.addEventListener("click", open_Popup);
+editPopup.addEventListener("click", openPopup);
 
-closePopup.addEventListener("click", close_Popup);
+popupClose.addEventListener("click", closePopup);
 
 
 function formSubmitHandler (evt) {
@@ -36,7 +34,7 @@ function formSubmitHandler (evt) {
     // Вставьте новые значения с помощью textContent
     profileJob.textContent=inputJob.value; 
     profileName.textContent=inputName.value;  
-    close_Popup();    
+    closePopup();    
 }
 
 submitPopup.addEventListener("click", formSubmitHandler);
