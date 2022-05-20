@@ -1,0 +1,22 @@
+.popup__create{
+    display: block;
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: 22px;
+    width: 358px;
+    height: 50px;
+    margin: 0 auto 37px;
+    border: none;
+    background-color: black;
+    border-radius: 2px;
+}
+
+@media screen and  (max-width:968px){
+    .popup__create{
+        width: 238px;
+        height: 46px;
+        font-size: 14px;
+        font-weight: 17px;
+        margin-bottom: 25px;
+    }
+  }
