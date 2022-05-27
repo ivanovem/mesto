@@ -29,12 +29,33 @@
     </button>
   </section>
   <section class="elements">
-    <div class="element">
-      <img src="./images/Karachaevsk.jpg" alt="Карачаевск" class="element__image">
+     <!--<div class="element">      
+        <button type="button" class="element__deleteBtn"></button>
+        <img src="./images/Karachaevsk.jpg" alt="Карачаевск" class="element__image">      
       <div class="element__sign">
         <h2 class="element__title">Карачаевск</h2>
         <button type="button" class="element__likeBtn">
-          <img src="./images/Like.png" alt="Лайк!">
+          <!--<img src="./images/Like.png" alt="Лайк!">
+        </button>
+      </div>
+   </div>
+    
+    <div class="element">
+      <button type="button" class="element__deleteBtn"></button>
+      <img src="./images/Elbrus.png" alt="Эльбрус" class="element__image">
+      <div class="element__sign">
+        <h2 class="element__title">Гора Эльбрус</h2>
+        <button type="button" class="element__likeBtn">
+           <!--<img src="./images/Like.png" alt="Лайк!">
+        </button>
+      </div>
+    <!--</div>
+    <!--<div class="element">
+      <img src="./images/Dombai.png" alt="Домбай" class="element__image">
+      <div class="element__sign">
+        <h2 class="element__title">Домбай</h2>
+        <button type="button" class="element__likeBtn">
+           <!--<img src="./images/Like.png" alt="Лайк!">
         </button>
       </div>
     </div>
@@ -43,7 +64,7 @@
       <div class="element__sign">
         <h2 class="element__title">Гора Эльбрус</h2>
         <button type="button" class="element__likeBtn">
-          <img src="./images/Like.png" alt="Лайк!">
+           <!--<img src="./images/Like.png" alt="Лайк!">
         </button>
       </div>
     </div>
@@ -52,25 +73,7 @@
       <div class="element__sign">
         <h2 class="element__title">Домбай</h2>
         <button type="button" class="element__likeBtn">
-          <img src="./images/Like.png" alt="Лайк!">
-        </button>
-      </div>
-    </div>
-    <div class="element">
-      <img src="./images/Elbrus.png" alt="Эльбрус" class="element__image">
-      <div class="element__sign">
-        <h2 class="element__title">Гора Эльбрус</h2>
-        <button type="button" class="element__likeBtn">
-          <img src="./images/Like.png" alt="Лайк!">
-        </button>
-      </div>
-    </div>
-    <div class="element">
-      <img src="./images/Dombai.png" alt="Домбай" class="element__image">
-      <div class="element__sign">
-        <h2 class="element__title">Домбай</h2>
-        <button type="button" class="element__likeBtn">
-          <img src="./images/Like.png" alt="Лайк!">
+           <!--<img src="./images/Like.png" alt="Лайк!">
         </button>
       </div>
     </div>
@@ -79,29 +82,66 @@
       <div class="element__sign">
         <h2 class="element__title">Карачаево-Черкесия</h2>
         <button type="button" class="element__likeBtn">
-          <img src="./images/Like.png" alt="Лайк!">
+           <!--<img src="./images/Like.png" alt="Лайк!">
         </button>
       </div>
-    </div>
-
+    </div>-->
+    
   </section>
 </main>
 <footer class="footer page__content">
   <p class="footer__copyright">&copy;2022 Mesto Russia</p>
 </footer>
-<div class="popup">
+<div class="popup popup_profile-edit">
   <form name="formPopup" class="popup__container" action="https://github.com/XXPegasXX/mesto/settings/pages" method="post">
     <button type="button" class="popup__close">
       <img src="./images/CloseIcon.png" alt="Закрыть" class="popup__close-icon">
     </button>
-    <h3 class="popup__title">Редактировать профиль</h3>
-      <!--<div>-->
+    <h3 class="popup__title">Редактировать профиль</h3>      
       <input type="text" class="popup__input-name" id="inputName" name="inputName">
       <input type="text" class="popup__input-job" id="inputJob" name="inputJob">
-      <!--</div>-->
     <button type="submit" class="popup__submit" value="Сохранить">Сохранить</button>
   </form>
 </div>
+<div class="popup popup_add-card">
+  <form name="formPopup" class="popup__container" action="" method="">
+    <button type="button" class="popup__close">
+      <img src="./images/CloseIcon.png" alt="Закрыть" class="popup__close-icon">
+    </button>
+    <h3 class="popup__title">Новое место</h3>
+      <input type="text" class="popup__input-imageName" id="inputImageName" name="inputName" placeholder="Название">
+      <input type="text" class="popup__input-url" id="inputUrl" name="inputUrl" placeholder="Ссылка на картинку">
+    <button type="submit" class="popup__create" value="Сохранить">Сохранить</button>
+  </form>
+</div>
+<!--<div class="popup popup_image" src="" alt="Картинка">
+  <form name="formPopup" class="popup__container" action="" method="">
+    <button type="button" class="popup__close">
+      <img src="./images/CloseIcon.png" alt="Закрыть" class="popup__close-icon">
+    </button>
+    <h3 class="popup__title">Новое место</h3>
+</div>-->
+<template id="cardElement">
+  <div class="element">
+    <button type="button" class="element__deleteBtn"></button>
+    <img src="" alt="Картинка" class="element__image">
+    <div class="popup popup_image" src="" alt="Картинка">
+      <form name="formPopup" class="popup__container" action="" method="">
+        <div class="popup_image_background" src="" alt="картинка">
+        <button type="button" class="popup__close">
+          <img src="./images/CloseIcon.png" alt="Закрыть" class="popup__close-icon">
+        </button>
+        </div>
+        <h3 class="popup_image_title"></h3>
+    </div>
+    <div class="element__sign">
+      <h2 class="element__title">Карачаево-Черкесия</h2>
+      <button type="button" class="element__likeBtn">
+         <!--<img src="./images/Like.png" alt="Лайк!">-->
+      </button>
+    </div>
+  </div>
+</template>
 <script defer src="./scripts/index.js"></script>
 </body>
 </html>
