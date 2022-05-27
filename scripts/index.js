@@ -3,8 +3,8 @@ const editPopup = document.querySelector(".profile__editBtn");
 const popup = document.querySelector(".popup_profile-edit");
 const submitPopup=document.querySelector(".popup__submit");
 const btnLike = document.querySelector(".element__likeBtn");
-
 const btnCreate = document.querySelector(".popup__create");
+
 
 const btnAdd = document.querySelector(".profile__addBtn");
 const popupAddCard = document.querySelector(".popup_add-card");
@@ -26,16 +26,6 @@ function popupsClose(){
 };
 btnsClose.forEach(btn =>{
   btn.addEventListener('click', popupsClose);
-});
-
-const btnsLike = document.querySelectorAll('.element__likeBtn');
-const handleBtnLike = (evt)=>{
-  evt.target.classList.toggle('element__likeBtn_active');
-  evt.stopPropagation();  
-};
-
-btnsLike.forEach(btn=>{
-    btn.addEventListener('click', handleBtnLike);
 });
 
 //---------------------------------------------------------------------------------------------//
@@ -67,46 +57,45 @@ const initialCards = [
     }
 ];
 
+
+
+//-------Работает отрисовка преддобавленных и добавление новых карточек, удаление карточек, лайк карточек
 const cardWrapper = document.querySelector('.elements');
-/*
-const renderCard = (wrap, name, link) =>{
-/*wrap.append(getCardElement(name, link));
-    wrap.insertAdjacentHTML('beforeend', 
-    `
-    <div class="element">
-    <button type="button" class="element__deleteBtn"></button>
-    <img src="${link}" alt="${name}" class="element__image">
-    <div class="element__sign">
-      <h2 class="element__title">${name}</h2>
-      <button type="button" class="element__likeBtn">
-         <!--<img src="./images/Like.png" alt="Лайк!">-->
-      </button>
-    </div>
-    `
-);  
+const handleDeleteCard = (evt)=>{
+evt.target.closest('.element').remove();
 };
-*/
-
-
-
-/* Как примерно должна выглядеть функция
-const renderTemplateCard = (e)=>{
-  e.preventDefault();
-  const newCard = templateCard.querySelector('.element').cloneNode(true);
-  newCard.querySelector('.element__title').textContent = inputImageName.value;
-  newCard.querySelector('.element__image').src = inputUrl.value;
-  newCard.append(true);
-  console.log(newCard);
-  return newCard;
-};*/
-
-//-------Работает отрисовка преддобавленных и добавление новых карточек
+const handleLikeCard = (evt)=>{
+  evt.target.classList.toggle('element__likeBtn_active');
+  evt.stopPropagation();  
+  };
 const copyTemplateCard = (name, link)=>{
   const newCard = templateCard.querySelector('.element').cloneNode(true);
   newCard.querySelector('.element__title').textContent = inputImageName.value;
   newCard.querySelector('.element__image').src = inputUrl.value;
   newCard.querySelector('.element__title').textContent = name;
   newCard.querySelector('.element__image').src = link;
+  
+
+  const btnDelete = newCard.querySelector('.element__deleteBtn');
+  const btnLike = newCard.querySelector('.element__likeBtn');
+  const popupImage = newCard.querySelector('.popup_image');
+  const btnClose = newCard.querySelector('.popup__close');
+
+  btnDelete.addEventListener('click', handleDeleteCard);
+  btnLike.addEventListener('click', handleLikeCard);
+  newCard.querySelector('.element__image').addEventListener('click', openPopupImage);
+  function openPopupImage(){
+    popupImage.classList.add('popup_opened');
+    popupImage.querySelector('.popup_image_background').src = newCard.querySelector('.element__image').src;
+    const popupbackgroundImage = popupImage.querySelector('.popup_image_background').style.background-Image;
+    popupImage.querySelector('.popup_image_title').textContent = newCard.querySelector('.element__title').textContent;
+  };
+
+  function popupClose(){
+    popupImage.classList.remove('popup_opened');
+  };
+  btnClose.addEventListener('click', popupClose);
+
   return newCard;
 };
 const renderCard = (wrap, name, link) =>{
@@ -124,39 +113,18 @@ popupAddCard.addEventListener('submit', (e)=>{
   renderCard(cardWrapper, name, link);
   popupAddCard.classList.remove('popup_opened');
 });
-//------------------------------------------------------------
 
-btnCreate.addEventListener('click', copyTemplateCard);
+//----------------------------------------------------------------------------------------
 
-const btnsDelete = document.querySelectorAll('.element__deleteBtn');
+
 const handleBtnDelete = (evt)=>{
-  card.remove();
+  element.remove();
   evt.stopPropagation();
 };
+const btnsDelete = document.querySelectorAll('.element__btnDelete');
 btnsDelete.forEach(btn=>{
   btn.addEventListener('click',handleBtnDelete);
 });
-/*
- = document.querySelectorAll('.element');
-function cardDelete(){
-  debugger;
-  cards.forEach(card=>{
-    card.remove();
-    console.log(card);
-  });
-};
-btnsDelete.forEach(btn =>{
-  debugger;
-  btn.addEventListener('click', cardDelete);
-  console.log(btn);
-});*/
-/*
-function handleDeleteCard(){
-  btnDelete.closest('.element').remove();
-};
-btnDelete.addEventListener('click', handleDeleteCard);
-*/
-
 
 
 function openPopupAddCard(){
@@ -164,17 +132,6 @@ function openPopupAddCard(){
 };
 
 btnAdd.addEventListener("click",openPopupAddCard);
-
-
-
-/*
-popupAddCard.addEventListener('submit', (e)=>{
-  e.preventDefault();
-  const name = e.target.inputImageName.value;
-  const link = e.target.inputUrl.value;
-  renderCard(cardWrapper, name, link);
-  popupAddCard.classList.remove('popup_opened');
-});*/
 
 let inputJob=document.querySelector(".popup__input-job");
 let inputName=document.querySelector(".popup__input-name");
@@ -192,6 +149,7 @@ function like(){
 
 function openPopupEdit(){
     btnAdd.classList.add("popup_opened");
+    console.log('')
 };
 function openPopup(){
     popup.classList.add("popup_opened");

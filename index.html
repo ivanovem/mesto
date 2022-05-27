@@ -29,7 +29,7 @@
     </button>
   </section>
   <section class="elements">
-   <!-- <div class="element">      
+     <!--<div class="element">      
         <button type="button" class="element__deleteBtn"></button>
         <img src="./images/Karachaevsk.jpg" alt="Карачаевск" class="element__image">      
       <div class="element__sign">
@@ -38,7 +38,7 @@
           <!--<img src="./images/Like.png" alt="Лайк!">
         </button>
       </div>
-    <!--</div>
+   </div>
     
     <div class="element">
       <button type="button" class="element__deleteBtn"></button>
@@ -105,7 +105,7 @@
 </div>
 <div class="popup popup_add-card">
   <form name="formPopup" class="popup__container" action="" method="">
-    <button type="button" class="popup__close popup__close2">
+    <button type="button" class="popup__close">
       <img src="./images/CloseIcon.png" alt="Закрыть" class="popup__close-icon">
     </button>
     <h3 class="popup__title">Новое место</h3>
@@ -114,9 +114,26 @@
     <button type="submit" class="popup__create" value="Сохранить">Сохранить</button>
   </form>
 </div>
+<!--<div class="popup popup_image" src="" alt="Картинка">
+  <form name="formPopup" class="popup__container" action="" method="">
+    <button type="button" class="popup__close">
+      <img src="./images/CloseIcon.png" alt="Закрыть" class="popup__close-icon">
+    </button>
+    <h3 class="popup__title">Новое место</h3>
+</div>-->
 <template id="cardElement">
   <div class="element">
+    <button type="button" class="element__deleteBtn"></button>
     <img src="" alt="Картинка" class="element__image">
+    <div class="popup popup_image" src="" alt="Картинка">
+      <form name="formPopup" class="popup__container" action="" method="">
+        <div class="popup_image_background" src="" alt="картинка">
+        <button type="button" class="popup__close">
+          <img src="./images/CloseIcon.png" alt="Закрыть" class="popup__close-icon">
+        </button>
+        </div>
+        <h3 class="popup_image_title"></h3>
+    </div>
     <div class="element__sign">
       <h2 class="element__title">Карачаево-Черкесия</h2>
       <button type="button" class="element__likeBtn">

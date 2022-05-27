@@ -8,8 +8,8 @@
     height: 330px;
     text-align: center;
     border-radius: 10px;
-    color: #0000cc;
-    background: #ffffff;
+    color: white;
+    background: black;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
