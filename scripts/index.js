@@ -111,7 +111,7 @@ function openPopupImage(newCard){
   return()=>{
   popupImage.classList.add('popup_opened');
   popupImage.querySelector('.popup__background').src = newCard.querySelector('.element__image').src;
-  popupImage.querySelector('.popup__title_image').textContent = newCard.querySelector('.element__title').textContent;
+  popupImage.querySelector('.popup__imageTitle').textContent = newCard.querySelector('.element__title').textContent;
   }
 };
 
