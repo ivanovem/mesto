@@ -80,15 +80,11 @@ const copyTemplateCard = (name, link)=>{
   const btnDelete = newCard.querySelector('.element__deleteBtn');
   const btnLike = newCard.querySelector('.element__likeBtn');
 
-  const openPopupImage = (evt)=>{
-    popupImage.classList.add('popup_opened');
-    popupImage.src = evt.target.closest('.element__image').src;
-    popupImage.querySelector('.popup_image_title').textContent = evt.target.closest('.element__title').textContent;
-  };
+
 
   btnDelete.addEventListener('click', handleDeleteCard);
   btnLike.addEventListener('click', handleLikeCard);
-  newCard.querySelector('.element__image').addEventListener('click', openPopupImage);
+  newCard.querySelector('.element__image').addEventListener('click', openPopupImage(newCard));
 
 
 
@@ -111,7 +107,13 @@ popupAddCard.addEventListener('submit', (e)=>{
   popupAddCard.classList.remove('popup_opened');
 });
 
-
+function openPopupImage(newCard){
+  return()=>{
+  popupImage.classList.add('popup_opened');
+  popupImage.src = newCard.querySelector('.element__image').src;
+  popupImage.querySelector('.popup_image_title').textContent = newCard.querySelector('.element__title').textContent;
+  }
+};
 
 //----------------------------------------------------------------------------------------
 
