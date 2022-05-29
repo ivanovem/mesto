@@ -80,11 +80,18 @@ const copyTemplateCard = (name, link)=>{
   const btnDelete = newCard.querySelector('.element__deleteBtn');
   const btnLike = newCard.querySelector('.element__likeBtn');
 
-
+  const openPopupImage = (evt)=>{
+    popupImage.classList.add('popup_opened');
+    popupImage.src = evt.target.closest('.element__image').src;
+    popupImage.querySelector('.popup_image_title').textContent = evt.target.closest('.element__title').textContent;
+  };
 
   btnDelete.addEventListener('click', handleDeleteCard);
   btnLike.addEventListener('click', handleLikeCard);
   newCard.querySelector('.element__image').addEventListener('click', openPopupImage);
+
+
+
 
   return newCard;
 };
@@ -104,12 +111,8 @@ popupAddCard.addEventListener('submit', (e)=>{
   popupAddCard.classList.remove('popup_opened');
 });
 
-function openPopupImage(){
-  popupImage.classList.add('popup_opened');
-  popupImage.querySelector('.popup_image_background').src = newCard.querySelector('.element__image').src;
-  const popupBackgroundImage = popupImage.querySelector('.popup_image_background').style.background-Image;
-  popupImage.querySelector('.popup_image_title').textContent = newCard.querySelector('.element__title').textContent;
-};
+
+
 //----------------------------------------------------------------------------------------
 
 
@@ -119,7 +122,7 @@ function openPopupImage(){
 function openPopupAddCard(){
   popupAddCard.classList.add('popup_opened');
   inputImageName.value = '';
-  inputUrl=' ';
+  inputUrl.value='';
 };
 
 btnAdd.addEventListener("click",openPopupAddCard);

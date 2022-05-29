@@ -4,12 +4,11 @@
     justify-content: center;
     margin: auto;
     position: absolute;
-    width: 430px;
-    height: 330px;
+    width: 70%;
+    height: 70%;
     text-align: center;
-    border-radius: 10px;
     color: white;
-    background: black;
+    background-position: center;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -17,7 +16,7 @@
 
 @media screen and  (max-width:968px){
     .popup_image{
-        width: 282px;
-        height: 322px;
+        width: 70%;
+        height: 70%;
     }
 }
