@@ -1,23 +1,23 @@
-/*.popup_image{
+.popup__container_image{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     margin: auto;
     position: absolute;
-    width: 70%;
-    height: 70%;
+    width: 430px;
+    height: 330px;
     text-align: center;
+    border-radius: 10px;
     color: white;
-    background-position: center;
+    background: rgba(0,0,0,0);
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
 }
 
 @media screen and  (max-width:968px){
-    .popup_image{
-        width: 70%;
-        height: 70%;
+    .popup__container_image{
+        width: 282px;
+        height: 322px;
     }
 }
