@@ -110,8 +110,8 @@ popupAddCard.addEventListener('submit', (e)=>{
 function openPopupImage(newCard){
   return()=>{
   popupImage.classList.add('popup_opened');
-  popupImage.querySelector('.popup_image_background').src = newCard.querySelector('.element__image').src;
-  popupImage.querySelector('.popup_image_title').textContent = newCard.querySelector('.element__title').textContent;
+  popupImage.querySelector('.popup__background').src = newCard.querySelector('.element__image').src;
+  popupImage.querySelector('.popup__title_image').textContent = newCard.querySelector('.element__title').textContent;
   }
 };
 
