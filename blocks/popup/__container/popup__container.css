@@ -9,7 +9,7 @@
     text-align: center;
     border-radius: 10px;
     color: white;
-    background: black;
+    background: white;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -20,4 +20,4 @@
         width: 282px;
         height: 322px;
     }
-  }
+}
