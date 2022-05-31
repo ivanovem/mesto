@@ -4,6 +4,10 @@ const btnSubmit = document.querySelector(".popup__submit");
 const btnLike = document.querySelector(".element__likeBtn");
 const btnCreate = document.querySelector(".popup__create");
 
+const inputJob = document.querySelector(".popup__input-job");
+const inputName = document.querySelector(".popup__input-name");
+const profileJob = document.querySelector(".profile__job");
+const profileName = document.querySelector(".profile__name");
 
 const btnAdd = document.querySelector(".profile__addBtn");
 const popupAddCard = document.querySelector(".popup_add-card");
@@ -19,9 +23,12 @@ const inputUrl = document.querySelector('.popup__input-url');
 
 const btnsClose = document.querySelectorAll('.popup__close');
 const popups = document.querySelectorAll('.popup');
+
 function popupsClose(){
-  popups.forEach(popup=>{
-    popup.classList.remove('popup_opened');
+    popups.forEach(popup=>{
+    if (popup.classList.contains('popup_opened')===true){
+    closePopup(popup);
+    } 
   });
 };
 btnsClose.forEach(btn =>{
@@ -76,18 +83,12 @@ const copyTemplateCard = (name, link)=>{
   newCard.querySelector('.element__image').src = link;
   newCard.querySelector('.element__image').alt = 'Изображение';
   
-
   const btnDelete = newCard.querySelector('.element__deleteBtn');
   const btnLike = newCard.querySelector('.element__likeBtn');
-
-
 
   btnDelete.addEventListener('click', handleDeleteCard);
   btnLike.addEventListener('click', handleLikeCard);
   newCard.querySelector('.element__image').addEventListener('click', openPopupImage(newCard));
-
-
-
 
   return newCard;
 };
@@ -115,51 +116,39 @@ function openPopupImage(newCard){
   }
 };
 
+
+
 //----------------------------------------------------------------------------------------
 
-
-
-
+function openPopup(popup){
+  popup.classList.add("popup_opened");
+};
+function closePopup(popup){
+  popup.classList.remove('popup_opened');
+};
 
 function openPopupAddCard(){
-  popupAddCard.classList.add('popup_opened');
+  openPopup(popupAddCard);
   inputImageName.value = '';
-  inputUrl.value='';
+  inputUrl.value = '';
 };
 
 btnAdd.addEventListener("click",openPopupAddCard);
 
-let inputJob=document.querySelector(".popup__input-job");
-let inputName=document.querySelector(".popup__input-name");
-let profileJob=document.querySelector(".profile__job");
-let profileName=document.querySelector(".profile__name");
-
-
-function openPopupEdit(){
-    btnAdd.classList.add("popup_opened");
-};
-function openPopup(){
-    popupProfileEdit.classList.add("popup_opened");
-    inputJob.value=profileJob.textContent;
-    inputName.value=profileName.textContent;  
+function openPopupProfileEdit(){
+    openPopup(popupProfileEdit);
+    inputJob.value = profileJob.textContent;
+    inputName.value = profileName.textContent;  
 };
 
-editPopup.addEventListener("click", openPopup);
+editPopup.addEventListener("click", openPopupProfileEdit);
 
 function popupProfileEditSubmitHandler (evt) {
-    evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
-                                                // Так мы можем определить свою логику отправки.
-                                                // О том, как это делать, расскажем позже.
-
-    // Получите значение полей jobInput и nameInput из свойства value
-
-    // Выберите элементы, куда должны быть вставлены значения полей
-
-    // Вставьте новые значения с помощью textContent
+    evt.preventDefault();
     profileJob.textContent=inputJob.value; 
     profileName.textContent=inputName.value;  
-    popupsClose();    
-}
+    closePopup(popupProfileEdit);
+  }
 
-btnSubmit.addEventListener("click", popupProfileEditSubmitHandler);
+popupProfileEdit.addEventListener("submit", popupProfileEditSubmitHandler);
 
