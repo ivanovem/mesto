@@ -22,17 +22,9 @@ const inputImageName = document.querySelector('.popup__input-imageName');
 const inputUrl = document.querySelector('.popup__input-url');
 
 const btnsClose = document.querySelectorAll('.popup__close');
-const popups = document.querySelectorAll('.popup');
 
-function popupsClose(){
-    popups.forEach(popup=>{
-    if (popup.classList.contains('popup_opened')===true){
-    closePopup(popup);
-    } 
-  });
-};
 btnsClose.forEach(btn =>{
-  btn.addEventListener('click', popupsClose);
+  btn.addEventListener('click', () => closePopup(document.querySelector('.popup_opened')));
 });
 
 //---------------------------------------------------------------------------------------------//
@@ -64,9 +56,6 @@ const initialCards = [
     }
 ];
 
-
-
-//-------Работает отрисовка преддобавленных и добавление новых карточек, удаление карточек, лайк карточек
 const cardWrapper = document.querySelector('.elements');
 const handleDeleteCard = (evt)=>{
 evt.target.closest('.element').remove();
@@ -88,10 +77,17 @@ const copyTemplateCard = (name, link)=>{
 
   btnDelete.addEventListener('click', handleDeleteCard);
   btnLike.addEventListener('click', handleLikeCard);
-  newCard.querySelector('.element__image').addEventListener('click', openPopupImage(newCard));
+  newCard.querySelector('.element__image').addEventListener('click', () => openPopupImage(name, link));
 
   return newCard;
 };
+
+function openPopupImage(imageTitle, imageUrl){
+  openPopup(popupImage);
+  popupImage.querySelector('.popup__imageTitle').textContent = imageTitle;
+  popupImage.querySelector('.popup__background').src = imageUrl;
+};
+
 const renderCard = (wrap, name, link) =>{
   wrap.prepend(copyTemplateCard(name, link))
 };
@@ -105,20 +101,8 @@ popupAddCard.addEventListener('submit', (e)=>{
   const name = inputImageName.value;
   const link = inputUrl.value;
   renderCard(cardWrapper, name, link);
-  popupAddCard.classList.remove('popup_opened');
+  closePopup(popupAddCard);
 });
-
-function openPopupImage(newCard){
-  return()=>{
-  popupImage.classList.add('popup_opened');
-  popupImage.querySelector('.popup__background').src = newCard.querySelector('.element__image').src;
-  popupImage.querySelector('.popup__imageTitle').textContent = newCard.querySelector('.element__title').textContent;
-  }
-};
-
-
-
-//----------------------------------------------------------------------------------------
 
 function openPopup(popup){
   popup.classList.add("popup_opened");
