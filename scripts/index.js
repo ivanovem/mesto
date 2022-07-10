@@ -77,12 +77,13 @@ const copyTemplateCard = (name, link)=>{
 
   btnDelete.addEventListener('click', handleDeleteCard);
   btnLike.addEventListener('click', handleLikeCard);
-  newCard.querySelector('.element__image').addEventListener('click', () => openPopupImage({name, link}));
+  newCard.querySelector('.element__image').addEventListener('click', () => openPopupImage(name, link));
 
   return newCard;
 };
 
-function openPopupImage({imageTitle, imageUrl}){
+
+function openPopupImage(imageTitle, imageUrl){
   openPopup(popupImage);
   popupImage.querySelector('.popup__imageTitle').textContent = imageTitle;
   popupImage.querySelector('.popup__background').src = imageUrl;
@@ -111,6 +112,8 @@ function closePopup(popup){
   popup.classList.remove('popup_opened');
 };
 
+
+
 function openPopupAddCard(){
   openPopup(popupAddCard);
   inputImageName.value = '';
@@ -122,7 +125,7 @@ btnAdd.addEventListener("click",openPopupAddCard);
 function openPopupProfileEdit(){
     openPopup(popupProfileEdit);
     inputJob.value = profileJob.textContent;
-    inputName.value = profileName.textContent;  
+    inputName.value = profileName.textContent;
 };
 
 editPopup.addEventListener("click", openPopupProfileEdit);
@@ -132,7 +135,64 @@ function popupProfileEditSubmitHandler (evt) {
     profileJob.textContent=inputJob.value; 
     profileName.textContent=inputName.value;  
     closePopup(popupProfileEdit);
-  }
-
+  };
 popupProfileEdit.addEventListener("submit", popupProfileEditSubmitHandler);
+/*
+popupProfileEdit.addEventListener("submit", popupProfileEditSubmitHandler);
+
+formInput=popupProfileEdit.querySelector('.popup__input');
+const spanError = popupProfileEdit.querySelector('.popup__input-error');
+
+
+function showInputError (element) {
+  element.classList.add('popup__input-error_active');
+};
+
+function hideInputError (element) {
+  element.classList.remove('popup__input-error_active');
+};
+
+const isValid = () => {
+  if (!formInput.validity.valid) {
+    // Если поле не проходит валидацию, покажем ошибку
+    showInputError(spanError);
+  } else {
+    // Если проходит, скроем
+    hideInputError(spanError);
+  }
+};
+
+formInput.addEventListener('input', isValid);
+
+/*
+popupProfileEdit.addEventListener("click", function(event){
+  event.preventDefault();
+  if(event.target==event.currentTarget){
+  closePopup(popupProfileEdit);
+  };
+});
+
+popupAddCard.addEventListener("click", function(event){
+  event.preventDefault();
+  if(event.target==event.currentTarget){
+  closePopup(popupAddCard);
+  }
+});
+    
+popupImage.addEventListener("click", function(event){
+  event.preventDefault();
+  if(event.target==event.currentTarget){
+  closePopup(popupImage);
+  }
+});
+
+popupProfileEdit.addEventListener("keydown", function(evt){
+  if (evt.key==='Escape'){
+    closePopup(popupProfileEdit);  
+  };
+});
+*/
+
+
+
 

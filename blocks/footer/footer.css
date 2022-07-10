@@ -1,0 +1,14 @@
+.footer{
+  display: flex;
+  flex-direction: row;
+  margin-top: 67px;
+  margin-bottom: 60px;
+  font-family: 'Inter', Arial, sans-serif;
+}
+
+@media screen and  (max-width:968px){
+  .footer{
+    margin-top: 48px;
+    margin-bottom: 36px;
+  }
+}
