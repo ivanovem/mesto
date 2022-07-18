@@ -35,25 +35,29 @@
   <p class="footer__copyright">&copy;2022 Mesto Russia</p>
 </footer>
 <div class="popup popup_profile-edit">
-  <form name="formPopup" class="popup__container" action="#" method="">
+  <form name="formPopup" class="popup__container" action="#" method="" novalidate>
     <button type="button" class="popup__close">
       <img src="./images/CloseIcon.png" alt="Закрыть" class="popup__close-icon">
     </button>
     <h3 class="popup__title">Редактировать профиль</h3>      
-      <input type="text" class="popup__input-name" id="inputName" name="inputName" placeholder="Введите имя">
-      <input type="text" class="popup__input-job" id="inputJob" name="inputJob"placeholder="Введите профессию">
-    <button type="submit" class="popup__submit" value="Сохранить">Сохранить</button>
+      <input type="text" class="popup__input popup__input-name" id="input-name" name="inputName" placeholder="Введите имя" required minlength="2" required maxlength="40">
+      <span class="popup__input-error input-name-error"></span>
+      <input type="text" class="popup__input popup__input-job " id="input-job" name="inputJob"placeholder="Введите профессию" required minlength="2" required maxlength="200">
+      <span class="popup__input-error input-job-error">Вы пропустили это поле.</span>
+    <button type="submit" class="popup__submit popup__button" value="Сохранить">Сохранить</button>
   </form>
 </div>
 <div class="popup popup_add-card">
-  <form name="formPopup" class="popup__container" action="" method="">
+  <form name="formPopup" class="popup__container" action="" method="" novalidate>
     <button type="button" class="popup__close">
       <img src="./images/CloseIcon.png" alt="Закрыть" class="popup__close-icon">
     </button>
     <h3 class="popup__title">Новое место</h3>
-      <input type="text" class="popup__input-imageName" id="inputImageName" name="inputName" placeholder="Название">
-      <input type="url" class="popup__input-url" id="inputUrl" name="inputUrl" placeholder="Ссылка на картинку">
-    <button type="submit" class="popup__create" value="Сохранить">Сохранить</button>
+      <input type="text" class="popup__input popup__input-imageName" id="input-image-name" name="inputName" placeholder="Название" minlength="2" maxlength="30">
+      <span class="popup__input-error input-image-name-error">Вы пропустили это поле.</span>
+      <input type="url" class="popup__input popup__input-url" id="input-url" name="inputUrl" placeholder="Ссылка на картинку" >
+      <span class="popup__input-error input-url-error">Введите адрес сайта.</span>
+    <button type="submit" class="popup__create popup__button" value="Сохранить">Сохранить</button>
   </form>
 </div>
 <div class="popup popup_image" src="" alt="Картинка">
@@ -77,5 +81,6 @@
   </div>
 </template>
 <script defer src="./scripts/index.js"></script>
+<script defer src="./scripts/validate.js"></script>
 </body>
 </html>

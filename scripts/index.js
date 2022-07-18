@@ -82,6 +82,7 @@ const copyTemplateCard = (name, link)=>{
   return newCard;
 };
 
+
 function openPopupImage(imageTitle, imageUrl){
   openPopup(popupImage);
   popupImage.querySelector('.popup__imageTitle').textContent = imageTitle;
@@ -111,10 +112,13 @@ function closePopup(popup){
   popup.classList.remove('popup_opened');
 };
 
+
+
 function openPopupAddCard(){
   openPopup(popupAddCard);
   inputImageName.value = '';
   inputUrl.value = '';
+  
 };
 
 btnAdd.addEventListener("click",openPopupAddCard);
@@ -122,7 +126,7 @@ btnAdd.addEventListener("click",openPopupAddCard);
 function openPopupProfileEdit(){
     openPopup(popupProfileEdit);
     inputJob.value = profileJob.textContent;
-    inputName.value = profileName.textContent;  
+    inputName.value = profileName.textContent;
 };
 
 editPopup.addEventListener("click", openPopupProfileEdit);
@@ -132,7 +136,37 @@ function popupProfileEditSubmitHandler (evt) {
     profileJob.textContent=inputJob.value; 
     profileName.textContent=inputName.value;  
     closePopup(popupProfileEdit);
-  }
-
+  };
 popupProfileEdit.addEventListener("submit", popupProfileEditSubmitHandler);
+
+
+popupProfileEdit.addEventListener("click", function(event){
+  event.preventDefault();
+  if(event.target==event.currentTarget){
+  closePopup(popupProfileEdit);
+  };
+});
+
+popupAddCard.addEventListener("click", function(event){
+  event.preventDefault();
+  if(event.target==event.currentTarget){
+  closePopup(popupAddCard);
+  }
+});
+    
+popupImage.addEventListener("click", function(event){
+  event.preventDefault();
+  if(event.target==event.currentTarget){
+  closePopup(popupImage);
+  }
+});
+
+popupProfileEdit.addEventListener("keydown", function(evt){
+  if (evt.key==='Escape'){
+    closePopup(popupProfileEdit);  
+  };
+});
+
+
+
 
