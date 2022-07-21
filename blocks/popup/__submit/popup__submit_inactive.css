@@ -1,0 +1,5 @@
+.popup__submit_inactive{
+    background-color: gray;
+    opacity: 0.5;
+    transition: 0.3s;
+}

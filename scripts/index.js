@@ -139,34 +139,26 @@ function popupProfileEditSubmitHandler (evt) {
   };
 popupProfileEdit.addEventListener("submit", popupProfileEditSubmitHandler);
 
+function closePopupOnClick(formElement) {
+  formElement.addEventListener("click", function(event){
+    if(event.target==event.currentTarget){
+    closePopup(formElement);
+    }
+  });
+};
 
-popupProfileEdit.addEventListener("click", function(event){
-  event.preventDefault();
-  if(event.target==event.currentTarget){
-  closePopup(popupProfileEdit);
-  };
-});
+closePopupOnClick(popupProfileEdit);
+closePopupOnClick(popupAddCard);
+closePopupOnClick(popupImage);
 
-popupAddCard.addEventListener("click", function(event){
-  event.preventDefault();
-  if(event.target==event.currentTarget){
-  closePopup(popupAddCard);
+function closePopupEsc(formElement){
+  document.addEventListener("keydown", function(evt){
+  if (evt.key==="Escape"){
+    closePopup(formElement);  
   }
 });
-    
-popupImage.addEventListener("click", function(event){
-  event.preventDefault();
-  if(event.target==event.currentTarget){
-  closePopup(popupImage);
-  }
-});
+}
 
-popupProfileEdit.addEventListener("keydown", function(evt){
-  if (evt.key==='Escape'){
-    closePopup(popupProfileEdit);  
-  };
-});
-
-
-
-
+closePopupEsc(popupProfileEdit);
+closePopupEsc(popupAddCard);
+closePopupEsc(popupImage);
