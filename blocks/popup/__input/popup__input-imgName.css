@@ -1,0 +1,17 @@
+.popup__input-imageName{
+    align-self: center;
+    width: 358px;
+    height: 27px;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, .2);
+    margin: 24px auto 0;
+    font-size: 14px;
+    line-height: 17px;
+}
+
+@media screen and  (max-width:968px){
+    .popup__input-imageName{
+        width: 238px;
+        margin-top: 56px;
+    }
+  }
