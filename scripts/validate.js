@@ -8,7 +8,7 @@ errorClass: 'popup__input-error_active'}
 const formObjectsArray = Array.from(document.querySelectorAll('.popup')).map(formElement=>{
   return{
     formElement,
-    inputElement:settings.inputElement,
+    formInputList: formElement.querySelectorAll(settings.inputElement),
     buttonElement: settings.buttonElement,
     inactiveButtonClass: settings.buttonElement,
     inputErrorClass: settings.inputErrorClass,
@@ -37,12 +37,14 @@ const hasInvalidInput = (inputList) => {
 }; 
 
 const toggleButtonState = (inputList, buttonElement) => {
-  if (hasInvalidInput(inputList)) {
-    buttonElement.setAttribute('disabled', true);
-    buttonElement.classList.add(settings.inactiveButtonClass);
-  } else {
-    buttonElement.removeAttribute('disabled');  
-    buttonElement.classList.remove(settings.inactiveButtonClass);    
+  if (buttonElement!=undefined){
+      if (hasInvalidInput(inputList)) {
+        buttonElement.setAttribute('disabled', true);
+        buttonElement.classList.add(settings.inactiveButtonClass);
+      } else {
+          buttonElement.removeAttribute('disabled');  
+          buttonElement.classList.remove(settings.inactiveButtonClass);    
+        }
   }
 };
 
@@ -55,15 +57,15 @@ const isValid = (formObject, inputElement) => {
 };
 
 const setEventListeners = (formObject) => {
-  const inputList = Array.from(formObject.formElement.querySelectorAll(settings.inputElement));
-  const buttonElement = formObject.formElement.querySelector(settings.buttonElement);
-  if (buttonElement!=null){
-  toggleButtonState(inputList, buttonElement);
+  const currentButtonElement = formObject.formElement.buttonElement;
+  const inputList = Array.from(formObject.formInputList);
+  if (currentButtonElement!=null||currentButtonElement!=undefined){
+  toggleButtonState(inputList, currentButtonElement);
   }
   inputList.forEach((inputElement) => {
     inputElement.addEventListener('input', () => {
       isValid(formObject, inputElement);
-      toggleButtonState(inputList, buttonElement);
+      toggleButtonState(inputList, currentButtonElement);
     });
   });
 } 
