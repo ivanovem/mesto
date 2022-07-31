@@ -89,8 +89,7 @@ function openPopupImage(imageTitle, imageUrl){
   openPopup(popupImage);
   popupImageTitle.textContent = imageTitle;
   popupImageBackground.src = imageUrl;
-  popupImageBackground.alt = 'Изображение';
-  document.addEventListener('keydown', closeByEscape); 
+  popupImageBackground.alt = imageTitle;
 };
 
 const renderCard = (wrap, name, link) =>{
