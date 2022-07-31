@@ -59,7 +59,7 @@ const isValid = (formObject, inputElement) => {
 const setEventListeners = (formObject) => {
   const currentButtonElement = formObject.formElement.buttonElement;
   const inputList = Array.from(formObject.formInputList);
-  if (currentButtonElement!=null||currentButtonElement!=undefined){
+  if (currentButtonElement!=null){
   toggleButtonState(inputList, currentButtonElement);
   }
   inputList.forEach((inputElement) => {
