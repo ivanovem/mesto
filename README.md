@@ -1,7 +1,7 @@
  # sprint-4
 Яндекс.Практикум. Проектная работа по верстке - "Место"
 
-https://xxpegasxx.github.io/mesto/index.html
+https://ivanovem.github.io/mesto/
 
 ## Стек
 При реализации настоящего проекта были использованы следующие технологии:
